@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | Vista Pure Window Cleaning</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Montserrat', 'sans-serif'], } } } }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .transition-all-1000 { transition-property: all; transition-timing-function: cubic-bezier(0, 0, 0.2, 1); transition-duration: 1000ms; }
+    .logo-crisp { image-rendering: -webkit-optimize-contrast; image-rendering: high-quality; transform: translateZ(0); backface-visibility: hidden; will-change: transform; }
+  </style>
+</head>
+<body class="min-h-screen font-sans text-slate-800 bg-[#FAFCFF] selection:bg-cyan-200 selection:text-slate-900">
+
+  <!-- Inject Reusable Navbar -->
+  <vista-nav></vista-nav>
+
+  <!-- Page Header -->
+  <section class="pt-40 pb-20 bg-slate-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+        <img src="images/hero-bg.jpg" class="w-full h-full object-cover object-center parallax-bg" data-speed="0.2" onerror="this.style.display='none'">
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Our Services</h1>
+      <p class="text-lg text-slate-400 max-w-2xl mx-auto">Comprehensive exterior cleaning solutions to keep your property looking flawless year-round.</p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+        
+        <!-- Window Cleaning -->
+        <a href="window-cleaning.html" class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 transition-all flex flex-col h-full">
+          <div class="h-64 overflow-hidden relative">
+            <img src="images/domestic.jpg" alt="Window Cleaning" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000'">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+            <h3 class="absolute bottom-6 left-6 text-2xl font-bold text-white flex items-center">Window Cleaning <i data-lucide="arrow-right" class="w-5 h-5 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i></h3>
+          </div>
+          <div class="p-8 flex-grow flex flex-col">
+            <p class="text-slate-600 mb-6 flex-grow">Our signature service. We use pure water technology to clean your windows, frames, sills, and doors safely from the ground. Available for both domestic and commercial properties.</p>
+            <span class="text-cyan-600 font-bold text-sm uppercase tracking-wide">View Service Details &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Gutter Clearing -->
+        <a href="gutter-clearing.html" class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 transition-all flex flex-col h-full" style="transition-delay: 100ms;">
+          <div class="h-64 overflow-hidden relative">
+            <img src="images/gutter-after.jpg" alt="Gutter Clearing" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000'">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+            <h3 class="absolute bottom-6 left-6 text-2xl font-bold text-white flex items-center">Gutter Clearing <i data-lucide="arrow-right" class="w-5 h-5 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i></h3>
+          </div>
+          <div class="p-8 flex-grow flex flex-col">
+            <p class="text-slate-600 mb-6 flex-grow">Protect your home from damp and water damage. We remove leaves, moss, and debris to ensure your guttering system flows freely all year round.</p>
+            <span class="text-cyan-600 font-bold text-sm uppercase tracking-wide">View Service Details &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Conservatory Roofs -->
+        <a href="conservatory-roofs.html" class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 transition-all flex flex-col h-full" style="transition-delay: 200ms;">
+          <div class="h-64 overflow-hidden relative">
+            <img src="images/roof-after.jpg" alt="Conservatory Roofs" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000'">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+            <h3 class="absolute bottom-6 left-6 text-2xl font-bold text-white flex items-center">Conservatory Roofs <i data-lucide="arrow-right" class="w-5 h-5 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i></h3>
+          </div>
+          <div class="p-8 flex-grow flex flex-col">
+            <p class="text-slate-600 mb-6 flex-grow">Bring the light back in. We safely scrub away baked-on algae, moss, and environmental stains from your conservatory roof panels and finials.</p>
+            <span class="text-cyan-600 font-bold text-sm uppercase tracking-wide">View Service Details &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Fascias & Soffits -->
+        <a href="fascias-soffits.html" class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 transition-all flex flex-col h-full" style="transition-delay: 300ms;">
+          <div class="h-64 overflow-hidden relative">
+            <img src="images/fascia-after.jpg" alt="Fascias & Soffits" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000'">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+            <h3 class="absolute bottom-6 left-6 text-2xl font-bold text-white flex items-center">Fascias & Soffits <i data-lucide="arrow-right" class="w-5 h-5 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i></h3>
+          </div>
+          <div class="p-8 flex-grow flex flex-col">
+            <p class="text-slate-600 mb-6 flex-grow">Restore your property's curb appeal. We wash away the grey traffic film and green algae to return your UPVC roofline to its bright white, freshly-installed appearance.</p>
+            <span class="text-cyan-600 font-bold text-sm uppercase tracking-wide">View Service Details &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Inject Reusable Footer -->
+  <vista-footer></vista-footer>
+
+  <!-- Load Web Components -->
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
+
+  <script>
+    lucide.createIcons();
+    
+    // Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-12');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Parallax
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      document.querySelectorAll('.parallax-bg').forEach(bg => {
+        const speed = bg.getAttribute('data-speed') || 0.3;
+        bg.style.transform = `translate3d(0, ${scrollY * speed}px, 0) scale(1.1)`;
+      });
+    });
+  </script>
+</body>
+</html>

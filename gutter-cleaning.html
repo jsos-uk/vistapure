@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gutter Clearing | Vista Pure Window Cleaning</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Montserrat', 'sans-serif'], } } } }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .transition-all-1000 { transition-property: all; transition-timing-function: cubic-bezier(0, 0, 0.2, 1); transition-duration: 1000ms; }
+    .logo-crisp { image-rendering: -webkit-optimize-contrast; image-rendering: high-quality; transform: translateZ(0); backface-visibility: hidden; will-change: transform; }
+  </style>
+</head>
+<body class="min-h-screen font-sans text-slate-800 bg-[#FAFCFF] selection:bg-cyan-200 selection:text-slate-900">
+
+  <!-- Inject Reusable Navbar -->
+  <vista-nav></vista-nav>
+
+  <!-- Page Content -->
+  <div class="pt-32 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+      
+      <!-- Back Link -->
+      <a href="services.html" class="inline-flex items-center text-cyan-600 font-semibold hover:text-cyan-700 mb-8 transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to all services
+      </a>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
+          <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Professional Gutter Clearing</h1>
+          <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+            Blocked gutters are one of the leading causes of damp and structural water damage in UK homes. Our professional clearing service ensures rainwater flows safely away from your property.
+          </p>
+          <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+            We remove built-up leaves, moss, silt, and hidden blockages from inside your gutters. We also check downpipes to ensure the entire system is functioning perfectly before we leave.
+          </p>
+          
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-center text-slate-700 font-medium"><div class="mr-4 w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-5 h-5 text-cyan-600"></i></div> Prevents Expensive Damp Issues</li>
+            <li class="flex items-center text-slate-700 font-medium"><div class="mr-4 w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-5 h-5 text-cyan-600"></i></div> Thorough Downpipe Unblocking</li>
+            <li class="flex items-center text-slate-700 font-medium"><div class="mr-4 w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-5 h-5 text-cyan-600"></i></div> No Mess Left Behind</li>
+          </ul>
+
+          <a href="index.html#quote-form" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white bg-cyan-600 hover:bg-cyan-700 rounded-xl shadow-lg transition-all">
+            Get a Gutter Quote <i data-lucide="chevron-right" class="w-5 h-5 ml-2"></i>
+          </a>
+        </div>
+        
+        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out" style="transition-delay: 200ms;">
+          <img src="images/gutter-after.jpg" alt="Gutter Clearing" class="rounded-3xl shadow-2xl w-full object-cover aspect-square md:aspect-[4/3]" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000'">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Inject Reusable Footer -->
+  <vista-footer></vista-footer>
+
+  <!-- Load Web Components -->
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
+
+  <script>
+    lucide.createIcons();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-12');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
