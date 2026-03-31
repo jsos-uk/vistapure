@@ -118,12 +118,11 @@ export default function App() {
           <div className="flex justify-between items-center">
             {/* Custom Logo Treatment */}
             <div className="flex-shrink-0 flex items-center cursor-pointer group">
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-md mr-3 transition-transform group-hover:scale-105">
-                <Droplets className="w-6 h-6 text-white absolute" />
-              </div>
-              <span className="font-extrabold text-2xl tracking-tight text-slate-900">
-                Vista<span className="text-cyan-600">Pure</span>
-              </span>
+              <img 
+                src="/images/logo-rectangle.png" 
+                alt="Vista Pure Logo" 
+                className="h-10 sm:h-12 w-auto transition-transform group-hover:scale-105"
+              />
             </div>
 
             {/* Desktop Menu */}
@@ -619,10 +618,11 @@ export default function App() {
             {/* Brand - Span 4 */}
             <div className="md:col-span-4">
               <div className="flex items-center gap-2 mb-6">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600">
-                  <Droplets className="w-5 h-5 text-white" />
-                </div>
-                <span className="font-extrabold text-2xl tracking-tight text-slate-900">Vista<span className="text-cyan-600">Pure</span></span>
+                <img 
+                  src="/images/logo-rectangle.png" 
+                  alt="Vista Pure Logo" 
+                  className="h-12 w-auto"
+                />
               </div>
               <p className="text-slate-500 mb-8 max-w-sm leading-relaxed">
                 Elevating property exteriors with reliable, insured, and professional pure water cleaning technology.
