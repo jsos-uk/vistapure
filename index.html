@@ -30,6 +30,12 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    /* Prevent horizontal scrolling caused by animations */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
@@ -62,7 +68,7 @@
     }
   </style>
 </head>
-<body class="min-h-screen font-sans text-slate-800 bg-[#FAFCFF] selection:bg-cyan-200 selection:text-slate-900">
+<body class="min-h-screen font-sans text-slate-800 bg-[#FAFCFF] selection:bg-cyan-200 selection:text-slate-900 overflow-x-hidden">
 
   <!-- Inject Reusable Navbar -->
   <vista-nav></vista-nav>

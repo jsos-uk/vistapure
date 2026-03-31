@@ -17,11 +17,17 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    /* Prevent horizontal scrolling caused by animations */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     .transition-all-1000 { transition-property: all; transition-timing-function: cubic-bezier(0, 0, 0.2, 1); transition-duration: 1000ms; }
     .logo-crisp { image-rendering: -webkit-optimize-contrast; image-rendering: high-quality; transform: translateZ(0); backface-visibility: hidden; will-change: transform; }
   </style>
 </head>
-<body class="min-h-screen font-sans text-slate-800 bg-[#FAFCFF] selection:bg-cyan-200 selection:text-slate-900">
+<body class="min-h-screen font-sans text-slate-800 bg-[#FAFCFF] selection:bg-cyan-200 selection:text-slate-900 overflow-x-hidden">
 
   <!-- Inject Reusable Navbar -->
   <vista-nav></vista-nav>
