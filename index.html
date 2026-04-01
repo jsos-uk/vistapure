@@ -58,6 +58,12 @@
       will-change: transform;
     }
 
+    /* Optimize parallax rendering */
+    .parallax-bg {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
     /* Slider input styling */
     .image-slider::-webkit-slider-thumb {
       appearance: none;
@@ -542,14 +548,29 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Parallax
+    // Optimized Parallax Effect
+    let ticking = false;
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      document.querySelectorAll('.parallax-bg').forEach(bg => {
-        const speed = bg.getAttribute('data-speed') || 0.3;
-        bg.style.transform = `translate3d(0, ${scrollY * speed}px, 0) scale(1.1)`;
-      });
-    });
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          // Disable parallax effect on mobile screens to prevent momentum scroll jitter
+          const isDesktop = window.innerWidth >= 768;
+          
+          document.querySelectorAll('.parallax-bg').forEach(bg => {
+            if (isDesktop) {
+              const speed = bg.getAttribute('data-speed') || 0.3;
+              bg.style.transform = `translate3d(0, ${scrollY * speed}px, 0) scale(1.1)`;
+            } else {
+              // Lock completely in place on mobile for native smooth scrolling
+              bg.style.transform = `translate3d(0, 0, 0) scale(1.1)`;
+            }
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
 
     // FAQ Accordion
     document.querySelectorAll('.faq-btn').forEach(btn => {
