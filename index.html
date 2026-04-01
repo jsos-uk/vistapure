@@ -79,11 +79,12 @@
       <img 
         src="images/hero-bg.jpg" 
         alt="Beautiful home exterior" 
-        class="parallax-bg w-full h-full object-cover object-center opacity-[0.15] scale-110"
+        class="parallax-bg w-full h-full object-cover object-center scale-110"
         data-speed="0.3"
         onerror="this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000'"
       />
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/95 to-slate-50/40"></div>
+      <!-- Softened gradient so the image is highly visible but text remains readable -->
+      <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-transparent"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
