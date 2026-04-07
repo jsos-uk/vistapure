@@ -5,15 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vista Pure Window Cleaning | Professional Local Service</title>
   
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts: Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Tailwind Config -->
   <script>
     tailwind.config = {
       theme: {
@@ -26,14 +23,13 @@
     }
   </script>
 
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     /* Prevent horizontal scrolling caused by animations */
     html, body {
       max-width: 100%;
-      overflow-x: hidden;
+      overflow-x: clip; /* Changed from hidden to clip to fix sticky cards */
     }
 
     @keyframes float {
@@ -72,14 +68,18 @@
       background: transparent;
       cursor: ew-resize;
     }
+
+    /* Magnetic Button Smooth Physics */
+    .magnetic-btn {
+      transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease;
+      will-change: transform;
+    }
   </style>
 </head>
-<body class="min-h-screen font-sans text-slate-800 bg-[#FAFCFF] selection:bg-cyan-200 selection:text-slate-900 overflow-x-hidden">
+<body class="min-h-screen font-sans text-slate-800 bg-[#FAFCFF] selection:bg-cyan-200 selection:text-slate-900 overflow-x-clip">
 
-  <!-- Inject Reusable Navbar -->
   <vista-nav></vista-nav>
 
-  <!-- Hero Section -->
   <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-slate-50">
     <div class="absolute inset-0 z-0">
       <img 
@@ -89,8 +89,7 @@
         data-speed="0.3"
         onerror="this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000'"
       />
-      <!-- Softened gradient so the image is highly visible but text remains readable -->
-      <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -116,6 +115,15 @@
           <p class="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
             Premium domestic and commercial window cleaning across the region. We use pure water technology for a flawless, streak-free finish every time.
           </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+            <a href="tel:+447000000000" class="magnetic-btn px-8 py-4 bg-slate-900 text-white font-bold rounded-xl shadow-lg hover:bg-cyan-700 transition-colors text-lg flex items-center justify-center w-full sm:w-auto">
+              <i data-lucide="phone" class="w-5 h-5 mr-2"></i> Call Us
+            </a>
+            <a href="#quote-form" class="magnetic-btn px-8 py-4 bg-white text-slate-900 font-bold rounded-xl shadow-lg border border-slate-200 hover:bg-slate-50 transition-colors text-lg flex items-center justify-center w-full sm:w-auto">
+              Get a Free Quote
+            </a>
+          </div>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <div class="flex items-center text-slate-700 bg-white px-4 py-2.5 rounded-lg border border-slate-200 shadow-sm">
@@ -192,7 +200,6 @@
     </div>
   </section>
 
-  <!-- Trust Bar -->
   <div class="bg-white border-b border-slate-200 py-8 relative z-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center text-slate-400">
@@ -212,7 +219,6 @@
     </div>
   </div>
 
-  <!-- Why Choose Us Section -->
   <section class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out text-center max-w-3xl mx-auto mb-16">
@@ -247,11 +253,9 @@
     </div>
   </section>
 
-  <!-- Service Details -->
   <section id="services" class="py-24 relative bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="space-y-24">
-        <!-- Domestic -->
         <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           <div class="reveal opacity-0 -translate-x-12 transition-all-1000 ease-out lg:w-1/2 relative">
             <img src="images/domestic.jpg" alt="Domestic House" class="rounded-[2rem] shadow-2xl object-cover h-[400px] w-full animate-float" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000'" />
@@ -266,7 +270,6 @@
           </div>
         </div>
 
-        <!-- Commercial -->
         <div class="flex flex-col lg:flex-row-reverse gap-12 lg:gap-20 items-center">
           <div class="reveal opacity-0 translate-x-12 transition-all-1000 ease-out lg:w-1/2 relative">
             <img src="images/commercial.jpg" alt="Commercial Building" class="rounded-[2rem] shadow-2xl object-cover h-[400px] w-full animate-float-delayed" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000'" />
@@ -285,76 +288,85 @@
   </section>
 
   <!-- Interactive Sliders -->
-  <section class="py-24 bg-slate-900 text-white">
+  <section class="py-24 bg-slate-900 text-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-24 reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
-        <h2 class="text-sm font-bold tracking-widest text-cyan-400 uppercase mb-3">Proven Results</h2>
+      
+      <div class="text-center mb-16 md:mb-20 reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
+        <h2 class="text-sm font-bold tracking-widest text-cyan-400 uppercase mb-2">Proven Results</h2>
         <h3 class="text-4xl md:text-5xl font-extrabold tracking-tight">Our Specialist Services</h3>
       </div>
 
-      <div class="space-y-32">
-        <!-- Conservatory Sliders -->
-        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
-          <div class="reveal opacity-0 -translate-x-12 transition-all-1000 ease-out lg:w-1/2">
-            <h4 class="text-3xl font-extrabold mb-4">Conservatory Roofs</h4>
-            <p class="text-slate-400 text-lg mb-8">Revitalize your conservatory. We remove years of algae and moss buildup safely.</p>
-            <a href="#quote-form" class="text-cyan-400 font-bold flex items-center hover:text-cyan-300">Get a Quote <i data-lucide="chevron-right" class="w-5 h-5 ml-2"></i></a>
-          </div>
-          <div class="reveal opacity-0 translate-x-12 transition-all-1000 ease-out lg:w-1/2 w-full">
-            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
-              <img src="images/roof-after.jpg" alt="Clean" class="absolute inset-0 w-full h-full object-cover select-none" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000'" />
-              <img src="images/roof-before.jpg" alt="Dirty" class="absolute inset-0 w-full h-full object-cover select-none" id="before-img-1" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000'; this.classList.add('brightness-50')" />
-              
-              <div class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded uppercase tracking-wider z-10 shadow">Before</div>
-              <div class="absolute top-4 right-4 bg-cyan-600/90 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded uppercase tracking-wider z-10 shadow">After</div>
+      <div class="space-y-16 md:space-y-24">
+        
+        <!-- Card 1 -->
+        <div class="w-full bg-[#1e293b] rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 shadow-2xl border border-slate-700 reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
+          <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+            <div class="lg:w-1/2">
+              <h4 class="text-2xl md:text-3xl font-extrabold mb-3">Conservatory Roofs</h4>
+              <p class="text-slate-300 text-base md:text-lg mb-6">Revitalize your conservatory. We remove years of algae and moss buildup safely.</p>
+              <a href="#quote-form" class="magnetic-btn inline-block text-cyan-400 font-bold px-6 py-3 bg-white/10 rounded-xl hover:bg-white/20 transition-colors">Get a Quote <i data-lucide="chevron-right" class="w-4 h-4 inline ml-1"></i></a>
+            </div>
+            <div class="lg:w-1/2 w-full">
+              <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-slate-600">
+                <img src="images/roof-after.jpg" alt="Clean" class="absolute inset-0 w-full h-full object-cover select-none" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000'" />
+                <img src="images/roof-before.jpg" alt="Dirty" class="absolute inset-0 w-full h-full object-cover select-none" id="before-img-1" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000'; this.classList.add('brightness-50')" />
+                
+                <div class="absolute top-3 left-3 md:top-4 md:left-4 bg-slate-900/90 backdrop-blur text-white text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded uppercase tracking-wider z-10 shadow">Before</div>
+                <div class="absolute top-3 right-3 md:top-4 md:right-4 bg-cyan-600/90 backdrop-blur text-white text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded uppercase tracking-wider z-10 shadow">After</div>
 
-              <input type="range" min="0" max="100" value="50" class="image-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20" data-target="1" />
-              <div class="absolute top-0 bottom-0 left-[50%] w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] pointer-events-none z-10" id="slider-line-1"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-2 border-cyan-500 shadow-2xl flex items-center justify-center text-slate-900"><i data-lucide="chevrons-left-right" class="w-6 h-6"></i></div></div>
+                <input type="range" min="0" max="100" value="50" class="image-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20" data-target="1" />
+                <div class="absolute top-0 bottom-0 left-[50%] w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] pointer-events-none z-10" id="slider-line-1"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full border-2 border-cyan-500 shadow-2xl flex items-center justify-center text-slate-900"><i data-lucide="chevrons-left-right" class="w-5 h-5 md:w-6 md:h-6"></i></div></div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Gutter Sliders -->
-        <div class="flex flex-col lg:flex-row-reverse gap-12 lg:gap-20 items-center">
-          <div class="reveal opacity-0 translate-x-12 transition-all-1000 ease-out lg:w-1/2">
-            <h4 class="text-3xl font-extrabold mb-4">Gutter Clearing</h4>
-            <p class="text-slate-400 text-lg mb-8">Avoid expensive damp repairs. We ensure your gutters are fully cleared and flowing.</p>
-            <a href="#quote-form" class="text-cyan-400 font-bold flex items-center hover:text-cyan-300">Get a Quote <i data-lucide="chevron-right" class="w-5 h-5 ml-2"></i></a>
-          </div>
-          <div class="reveal opacity-0 -translate-x-12 transition-all-1000 ease-out lg:w-1/2 w-full">
-            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
-              <img src="images/gutter-after.jpg" alt="Clean" class="absolute inset-0 w-full h-full object-cover select-none" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000'" />
-              <img src="images/gutter-before.jpg" alt="Dirty" class="absolute inset-0 w-full h-full object-cover select-none" id="before-img-2" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000'; this.classList.add('brightness-50')" />
-              
-              <div class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded uppercase tracking-wider z-10 shadow">Before</div>
-              <div class="absolute top-4 right-4 bg-cyan-600/90 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded uppercase tracking-wider z-10 shadow">After</div>
+        <!-- Card 2 -->
+        <div class="w-full bg-[#151f30] rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 shadow-2xl border border-slate-700 reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
+          <div class="flex flex-col lg:flex-row-reverse gap-8 lg:gap-12 items-center">
+            <div class="lg:w-1/2">
+              <h4 class="text-2xl md:text-3xl font-extrabold mb-3">Gutter Clearing</h4>
+              <p class="text-slate-300 text-base md:text-lg mb-6">Avoid expensive damp repairs. We ensure your gutters are fully cleared and flowing.</p>
+              <a href="#quote-form" class="magnetic-btn inline-block text-cyan-400 font-bold px-6 py-3 bg-white/10 rounded-xl hover:bg-white/20 transition-colors">Get a Quote <i data-lucide="chevron-right" class="w-4 h-4 inline ml-1"></i></a>
+            </div>
+            <div class="lg:w-1/2 w-full">
+              <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-slate-600">
+                <img src="images/gutter-after.jpg" alt="Clean" class="absolute inset-0 w-full h-full object-cover select-none" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000'" />
+                <img src="images/gutter-before.jpg" alt="Dirty" class="absolute inset-0 w-full h-full object-cover select-none" id="before-img-2" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000'; this.classList.add('brightness-50')" />
+                
+                <div class="absolute top-3 left-3 md:top-4 md:left-4 bg-slate-900/90 backdrop-blur text-white text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded uppercase tracking-wider z-10 shadow">Before</div>
+                <div class="absolute top-3 right-3 md:top-4 md:right-4 bg-cyan-600/90 backdrop-blur text-white text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded uppercase tracking-wider z-10 shadow">After</div>
 
-              <input type="range" min="0" max="100" value="50" class="image-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20" data-target="2" />
-              <div class="absolute top-0 bottom-0 left-[50%] w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] pointer-events-none z-10" id="slider-line-2"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-2 border-cyan-500 shadow-2xl flex items-center justify-center text-slate-900"><i data-lucide="chevrons-left-right" class="w-6 h-6"></i></div></div>
+                <input type="range" min="0" max="100" value="50" class="image-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20" data-target="2" />
+                <div class="absolute top-0 bottom-0 left-[50%] w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] pointer-events-none z-10" id="slider-line-2"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full border-2 border-cyan-500 shadow-2xl flex items-center justify-center text-slate-900"><i data-lucide="chevrons-left-right" class="w-5 h-5 md:w-6 md:h-6"></i></div></div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Fascias Sliders -->
-        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
-          <div class="reveal opacity-0 -translate-x-12 transition-all-1000 ease-out lg:w-1/2">
-            <h4 class="text-3xl font-extrabold mb-4">Fascias & Soffits</h4>
-            <p class="text-slate-400 text-lg mb-8">Your UPVC roofline frames your house. We wash away the grime to restore that bright, fresh appearance.</p>
-            <a href="#quote-form" class="text-cyan-400 font-bold flex items-center hover:text-cyan-300">Get a Quote <i data-lucide="chevron-right" class="w-5 h-5 ml-2"></i></a>
-          </div>
-          <div class="reveal opacity-0 translate-x-12 transition-all-1000 ease-out lg:w-1/2 w-full">
-            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
-              <img src="images/fascia-after.jpg" alt="Clean Fascias" class="absolute inset-0 w-full h-full object-cover select-none" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000'" />
-              <img src="images/fascia-before.jpg" alt="Dirty Fascias" class="absolute inset-0 w-full h-full object-cover select-none" id="before-img-3" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000'; this.classList.add('brightness-50')" />
-              
-              <div class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded uppercase tracking-wider z-10 shadow">Before</div>
-              <div class="absolute top-4 right-4 bg-cyan-600/90 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded uppercase tracking-wider z-10 shadow">After</div>
+        <!-- Card 3 -->
+        <div class="w-full bg-[#0f172a] rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 shadow-2xl border border-slate-700 reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
+          <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+            <div class="lg:w-1/2">
+              <h4 class="text-2xl md:text-3xl font-extrabold mb-3">Fascias & Soffits</h4>
+              <p class="text-slate-300 text-base md:text-lg mb-6">Your UPVC roofline frames your house. We wash away the grime to restore that bright, fresh appearance.</p>
+              <a href="#quote-form" class="magnetic-btn inline-block text-cyan-400 font-bold px-6 py-3 bg-white/10 rounded-xl hover:bg-white/20 transition-colors">Get a Quote <i data-lucide="chevron-right" class="w-4 h-4 inline ml-1"></i></a>
+            </div>
+            <div class="lg:w-1/2 w-full">
+              <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-slate-600">
+                <img src="images/fascia-after.jpg" alt="Clean Fascias" class="absolute inset-0 w-full h-full object-cover select-none" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000'" />
+                <img src="images/fascia-before.jpg" alt="Dirty Fascias" class="absolute inset-0 w-full h-full object-cover select-none" id="before-img-3" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000'; this.classList.add('brightness-50')" />
+                
+                <div class="absolute top-3 left-3 md:top-4 md:left-4 bg-slate-900/90 backdrop-blur text-white text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded uppercase tracking-wider z-10 shadow">Before</div>
+                <div class="absolute top-3 right-3 md:top-4 md:right-4 bg-cyan-600/90 backdrop-blur text-white text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded uppercase tracking-wider z-10 shadow">After</div>
 
-              <input type="range" min="0" max="100" value="50" class="image-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20" data-target="3" />
-              <div class="absolute top-0 bottom-0 left-[50%] w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] pointer-events-none z-10" id="slider-line-3"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-2 border-cyan-500 shadow-2xl flex items-center justify-center text-slate-900"><i data-lucide="chevrons-left-right" class="w-6 h-6"></i></div></div>
+                <input type="range" min="0" max="100" value="50" class="image-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20" data-target="3" />
+                <div class="absolute top-0 bottom-0 left-[50%] w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] pointer-events-none z-10" id="slider-line-3"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full border-2 border-cyan-500 shadow-2xl flex items-center justify-center text-slate-900"><i data-lucide="chevrons-left-right" class="w-5 h-5 md:w-6 md:h-6"></i></div></div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -394,7 +406,6 @@
     </div>
   </section>
 
-  <!-- Reviews & Testimonials -->
   <section id="reviews" class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out text-center mb-16">
@@ -431,7 +442,6 @@
     </div>
   </section>
 
-  <!-- FAQ Section -->
   <section class="py-24 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out text-center mb-16">
@@ -440,7 +450,6 @@
       </div>
 
       <div class="space-y-4">
-        <!-- FAQ 1 -->
         <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out border border-slate-200 rounded-2xl overflow-hidden" style="transition-delay: 0ms;">
           <button class="faq-btn w-full px-6 py-5 text-left bg-white hover:bg-slate-50 flex justify-between items-center transition-colors focus:outline-none">
             <span class="font-bold text-slate-900">Are frames and sills included in the price?</span>
@@ -450,7 +459,6 @@
             <p class="text-slate-600 text-sm leading-relaxed pb-5">Yes, absolutely. Unlike traditional window cleaners who only clean the glass, our pure water system allows us to thoroughly clean your frames, sills, and doors every single time at no extra cost.</p>
           </div>
         </div>
-        <!-- FAQ 2 -->
         <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out border border-slate-200 rounded-2xl overflow-hidden" style="transition-delay: 100ms;">
           <button class="faq-btn w-full px-6 py-5 text-left bg-white hover:bg-slate-50 flex justify-between items-center transition-colors focus:outline-none">
             <span class="font-bold text-slate-900">Do you clean in the rain?</span>
@@ -460,7 +468,6 @@
             <p class="text-slate-600 text-sm leading-relaxed pb-5">Yes, we do. Rainwater is pure and does not affect the quality of the clean when using our purified water system. If you are ever unhappy with a clean due to weather, we offer a 48-hour guarantee to return and re-clean for free.</p>
           </div>
         </div>
-        <!-- FAQ 3 -->
         <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out border border-slate-200 rounded-2xl overflow-hidden" style="transition-delay: 200ms;">
           <button class="faq-btn w-full px-6 py-5 text-left bg-white hover:bg-slate-50 flex justify-between items-center transition-colors focus:outline-none">
             <span class="font-bold text-slate-900">How do I pay my bill?</span>
@@ -474,7 +481,6 @@
     </div>
   </section>
 
-  <!-- Areas Covered Section -->
   <section id="areas" class="py-24 bg-slate-900 rounded-[3rem] mx-4 sm:mx-6 lg:mx-8 mb-24 relative overflow-hidden">
     <div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center parallax-bg" data-speed="0.15">
       <i data-lucide="map" class="w-[800px] h-[800px] text-white"></i>
@@ -504,7 +510,6 @@
     </div>
   </section>
 
-  <!-- Final CTA Section -->
   <section class="py-20 bg-cyan-600 relative overflow-hidden">
     <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-cyan-500 rounded-full blur-3xl opacity-50"></div>
     <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-blue-600 rounded-full blur-3xl opacity-50"></div>
@@ -513,9 +518,9 @@
       <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
         <h2 class="text-4xl font-extrabold tracking-tight mb-6">Ready to see clearly again?</h2>
         <p class="text-xl text-cyan-100 mb-10 max-w-2xl mx-auto">Join hundreds of happy customers. Get your free, no-obligation quote sent straight to your phone today.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="#quote-form" class="px-8 py-4 bg-white text-cyan-700 font-bold rounded-xl shadow-lg hover:bg-slate-50 transition-colors text-lg">Get Your Free Quote</a>
-          <a href="https://wa.me/447000000000" class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-lg flex items-center justify-center">
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a href="#quote-form" class="magnetic-btn px-8 py-4 bg-white text-cyan-700 font-bold rounded-xl shadow-lg hover:bg-slate-50 transition-colors text-lg">Get Your Free Quote</a>
+          <a href="https://wa.me/447000000000" class="magnetic-btn px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-lg flex items-center justify-center">
             <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i> WhatsApp Us
           </a>
         </div>
@@ -523,17 +528,45 @@
     </div>
   </section>
 
-  <!-- Inject Reusable Footer -->
   <vista-footer></vista-footer>
 
-  <!-- Load Web Components -->
   <script src="nav.js"></script>
   <script src="footer.js"></script>
 
-  <!-- Initialize Interactions & Animations -->
   <script>
     // Initialize Icons (Run once immediately for body content)
     lucide.createIcons();
+
+    // Magnetic Button Physics (Upgraded for smoothness & magnetic radius)
+    document.addEventListener('mousemove', (e) => {
+      document.querySelectorAll('.magnetic-btn').forEach(btn => {
+        const rect = btn.getBoundingClientRect();
+        
+        // Find the center of the button
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        // Calculate distance from cursor to center
+        const x = e.clientX - centerX;
+        const y = e.clientY - centerY;
+        const distance = Math.sqrt(x * x + y * y);
+
+        // The radius of the magnetic field
+        const maxDistance = 150;
+
+        // If the cursor is within the magnetic field, gently pull it
+        if (distance < maxDistance) {
+          // Calculate a dynamic pull strength so it starts at 0 at the very edge 
+          // of the radius, preventing the sudden "snapping" jump.
+          const pullStrength = (maxDistance - distance) / maxDistance;
+          
+          btn.style.transform = `translate(${x * 0.4 * pullStrength}px, ${y * 0.4 * pullStrength}px)`;
+        } else {
+          // Reset smoothly when cursor leaves the radius
+          btn.style.transform = `translate(0px, 0px)`;
+        }
+      });
+    });
 
     // Intersection Observer for Reveal Animations
     const observer = new IntersectionObserver((entries) => {
