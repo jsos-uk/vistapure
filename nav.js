@@ -1,7 +1,7 @@
 class VistaNav extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md py-4 border-b border-slate-100 shadow-sm">
+      <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md py-4 border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center">
             
