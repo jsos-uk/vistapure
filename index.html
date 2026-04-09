@@ -148,13 +148,12 @@
               <p class="text-slate-500 mt-2 font-medium">Enter your details and we'll reply instantly.</p>
             </div>
 
-            <!-- Integrated Web3Forms -->
-            <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" class="space-y-5">
+            <!-- Integrated FormSubmit -->
+            <form id="quoteForm" action="https://formsubmit.co/elliot@vistapure.co.uk" method="POST" enctype="multipart/form-data" class="space-y-5">
               
-              <!-- Web3Forms Config -->
-              <input type="hidden" name="access_key" value="ee0b355f-4f70-4a7b-ad45-2e474f4c0d72">
-              <input type="hidden" name="subject" value="New Quote Request from Vista Pure">
-              <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+              <!-- FormSubmit Config -->
+              <input type="hidden" name="_subject" value="New Quote Request from Vista Pure">
+              <input type="hidden" name="_captcha" value="false"> <!-- Disable captcha for smoother AJAX submission -->
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
@@ -717,14 +716,20 @@
 
         const formData = new FormData(quoteForm);
 
+        // Convert standard endpoint to AJAX endpoint for FormSubmit
+        const formAction = quoteForm.getAttribute('action').replace('formsubmit.co/', 'formsubmit.co/ajax/');
+
         // Send data directly using Fetch API
-        fetch("https://api.web3forms.com/submit", {
+        fetch(formAction, {
           method: "POST",
+          headers: {
+            'Accept': 'application/json'
+          },
           body: formData
         })
         .then(async (response) => {
           let json = await response.json();
-          if (response.status == 200) {
+          if (json.success) {
             alert("Success! Your quote request has been sent. We will be in touch shortly.");
             quoteForm.reset();
             // Reset the file upload UI
