@@ -148,8 +148,9 @@
               <p class="text-slate-500 mt-2 font-medium">Enter your details and we'll reply instantly.</p>
             </div>
 
-            <!-- Integrated FormSubmit -->
-            <form id="quoteForm" action="https://formsubmit.co/elliot@vistapure.co.uk" method="POST" enctype="multipart/form-data" class="space-y-5">
+            <!-- Integrated FormSubmit with Hidden Iframe trick for Files -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+            <form id="quoteForm" action="https://formsubmit.co/elliot@vistapure.co.uk" method="POST" target="hidden_iframe" enctype="multipart/form-data" class="space-y-5">
               
               <!-- FormSubmit Config -->
               <input type="hidden" name="_subject" value="New Quote Request from Vista Pure">
@@ -701,54 +702,36 @@
       });
     }
 
-    // Web3Forms AJAX Submission
+    // Seamless FormSubmit via Hidden Iframe (Crucial for File Uploads)
     const quoteForm = document.getElementById('quoteForm');
     const submitBtn = document.getElementById('submitBtn');
     const submitText = document.getElementById('submitText');
+    const hiddenIframe = document.getElementById('hidden_iframe');
+    let isSubmitting = false;
 
-    if (quoteForm) {
-      quoteForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Stop standard HTML redirect
-        
-        // Change UI to loading state
+    if (quoteForm && hiddenIframe) {
+      quoteForm.addEventListener('submit', function() {
+        // Notice we do NOT use e.preventDefault() here.
+        // We want the form to submit normally, but targeted at the hidden iframe.
+        isSubmitting = true;
         submitText.innerText = "Sending... Please wait";
         submitBtn.disabled = true;
+      });
 
-        const formData = new FormData(quoteForm);
-
-        // Convert standard endpoint to AJAX endpoint for FormSubmit
-        const formAction = quoteForm.getAttribute('action').replace('formsubmit.co/', 'formsubmit.co/ajax/');
-
-        // Send data directly using Fetch API
-        fetch(formAction, {
-          method: "POST",
-          headers: {
-            'Accept': 'application/json'
-          },
-          body: formData
-        })
-        .then(async (response) => {
-          let json = await response.json();
-          if (json.success) {
-            alert("Success! Your quote request has been sent. We will be in touch shortly.");
-            quoteForm.reset();
-            // Reset the file upload UI
-            if (fileTitle) fileTitle.innerText = "Upload photos of your windows";
-            if (fileNameDisplay) fileNameDisplay.innerHTML = "(Optional) Helps us quote you faster.";
-          } else {
-            console.log(response);
-            alert(json.message || "Something went wrong. Please check your inputs and try again.");
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-          alert("A network error occurred. Please try again later.");
-        })
-        .finally(() => {
+      hiddenIframe.addEventListener('load', function() {
+        if (isSubmitting) {
+          alert("Success! Your quote request and photos have been sent. We will be in touch shortly.");
+          quoteForm.reset();
+          
+          // Reset the file upload UI
+          if (fileTitle) fileTitle.innerText = "Upload photos of your windows";
+          if (fileNameDisplay) fileNameDisplay.innerHTML = "(Optional) Helps us quote you faster.";
+          
           // Reset button back to normal state
           submitText.innerText = "Send My Details";
           submitBtn.disabled = false;
-        });
+          isSubmitting = false;
+        }
       });
     }
 
