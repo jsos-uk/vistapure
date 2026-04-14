@@ -6,8 +6,6 @@
   <title>Window Cleaning | Vista Pure Window Cleaning</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <script>
@@ -16,76 +14,293 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Prevent horizontal scrolling caused by animations */
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
+    html, body { max-width: 100%; overflow-x: clip; }
     .transition-all-1000 { transition-property: all; transition-timing-function: cubic-bezier(0, 0, 0.2, 1); transition-duration: 1000ms; }
-    .logo-crisp { image-rendering: -webkit-optimize-contrast; image-rendering: high-quality; transform: translateZ(0); backface-visibility: hidden; will-change: transform; }
+    .magnetic-btn { transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease; will-change: transform; }
   </style>
 </head>
-<body class="min-h-screen font-sans text-slate-800 bg-[#FAFCFF] selection:bg-cyan-200 selection:text-slate-900 overflow-x-hidden">
+<body class="min-h-screen font-sans text-slate-800 bg-[#FAFCFF] selection:bg-cyan-200 selection:text-slate-900 overflow-x-clip pt-20">
 
-  <!-- Inject Reusable Navbar -->
   <vista-nav></vista-nav>
 
-  <!-- Page Content -->
-  <div class="pt-32 pb-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
-      
-      <!-- Back Link -->
-      <a href="services.html" class="inline-flex items-center text-cyan-600 font-semibold hover:text-cyan-700 mb-8 transition-colors">
-        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to all services
-      </a>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
-          <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Domestic & Commercial Window Cleaning</h1>
-          <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-            We provide a reliable, premium window cleaning service that guarantees a spotless finish every time. Whether it's your family home or your business premises, our pure water technology ensures pristine results.
-          </p>
-          <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-            By using advanced reach and wash systems, we clean from the safety of the ground—meaning no ladders scraping against your brickwork, and total privacy for your upstairs rooms. Best of all, <strong class="text-slate-900">frames, sills, and doors are always included in the price.</strong>
-          </p>
-          
-          <ul class="space-y-4 mb-10">
-            <li class="flex items-center text-slate-700 font-medium"><div class="mr-4 w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-5 h-5 text-cyan-600"></i></div> 100% Pure Water System</li>
-            <li class="flex items-center text-slate-700 font-medium"><div class="mr-4 w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-5 h-5 text-cyan-600"></i></div> 4 or 8 Weekly Regular Schedules</li>
-            <li class="flex items-center text-slate-700 font-medium"><div class="mr-4 w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-5 h-5 text-cyan-600"></i></div> Fully Insured Service</li>
-          </ul>
-
-          <a href="index.html#quote-form" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white bg-cyan-600 hover:bg-cyan-700 rounded-xl shadow-lg transition-all">
-            Get a Free Quote <i data-lucide="chevron-right" class="w-5 h-5 ml-2"></i>
+  <!-- Hero Section (No reveal animations so it loads instantly) -->
+  <section class="relative py-24 md:py-32 bg-slate-900 text-white overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover opacity-20" alt="Clean windows" />
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm font-bold text-cyan-300 mb-6">
+          <i data-lucide="droplets" class="w-4 h-4 mr-2"></i> Window Cleaning
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">Crystal clear, streak-free results.</h1>
+        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">Premium pure water cleaning for homes and businesses. Frames, sills, and doors are always included as standard.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html#quote-form" class="magnetic-btn inline-block px-8 py-4 bg-cyan-600 text-white font-bold rounded-xl shadow-lg hover:bg-cyan-500 text-center">Get a Free Quote</a>
+          <a href="tel:+447000000000" class="magnetic-btn inline-flex px-8 py-4 bg-white/10 text-white border border-white/20 font-bold rounded-xl hover:bg-white/20 transition-colors text-center items-center justify-center">
+            <i data-lucide="phone" class="w-5 h-5 mr-2"></i> Call Us
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem / Solution Section -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
-        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out" style="transition-delay: 200ms;">
-          <img src="images/domestic.jpg" alt="Window Cleaning" class="rounded-3xl shadow-2xl w-full object-cover aspect-square md:aspect-[4/3]" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000'">
+        <div class="reveal opacity-0 -translate-x-12 transition-all-1000 ease-out">
+          <h2 class="text-sm font-bold tracking-widest text-cyan-600 uppercase mb-3">The Problem</h2>
+          <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">Why traditional window cleaning fails.</h3>
+          <p class="text-slate-600 mb-6 text-lg leading-relaxed">
+            For decades, window cleaners have used ladders, buckets of soapy water, and a squeegee. While the glass looks clean initially, the microscopic soapy film left behind acts like a magnet for dust and dirt the moment the cleaner leaves.
+          </p>
+          <p class="text-slate-600 mb-8 text-lg leading-relaxed">
+            Furthermore, balancing on ladders means frames and sills are often neglected, leaving the actual structure of your windows dirty and prone to degrading.
+          </p>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex items-start">
+              <i data-lucide="x-circle" class="w-6 h-6 text-red-500 mr-3 shrink-0 mt-0.5"></i>
+              <span class="font-bold text-slate-700">Soapy residue attracts dirt</span>
+            </div>
+            <div class="flex items-start">
+              <i data-lucide="x-circle" class="w-6 h-6 text-red-500 mr-3 shrink-0 mt-0.5"></i>
+              <span class="font-bold text-slate-700">Dangerous use of ladders</span>
+            </div>
+            <div class="flex items-start">
+              <i data-lucide="x-circle" class="w-6 h-6 text-red-500 mr-3 shrink-0 mt-0.5"></i>
+              <span class="font-bold text-slate-700">Frames and sills ignored</span>
+            </div>
+            <div class="flex items-start">
+              <i data-lucide="x-circle" class="w-6 h-6 text-red-500 mr-3 shrink-0 mt-0.5"></i>
+              <span class="font-bold text-slate-700">Privacy issues upstairs</span>
+            </div>
+          </div>
         </div>
+
+        <div class="reveal opacity-0 translate-x-12 transition-all-1000 ease-out lg:pl-10">
+          <div class="bg-cyan-50 p-8 md:p-10 rounded-[2rem] border border-cyan-100 relative overflow-hidden">
+             <div class="absolute -top-6 -right-6 w-32 h-32 bg-white rounded-full blur-3xl opacity-60"></div>
+             <i data-lucide="droplets" class="w-12 h-12 text-cyan-600 mb-6 relative z-10"></i>
+             <h3 class="text-2xl font-extrabold text-slate-900 mb-4 relative z-10">The Pure Water Solution</h3>
+             <p class="text-slate-700 mb-6 relative z-10 font-medium">
+               We use advanced reverse osmosis to filter our water, stripping it of 100% of its minerals and impurities before it ever touches your glass.
+             </p>
+             <ul class="space-y-3 relative z-10">
+               <li class="flex items-center text-slate-800"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-600 mr-3 shrink-0"></i> Dries naturally, 100% spot-free</li>
+               <li class="flex items-center text-slate-800"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-600 mr-3 shrink-0"></i> Stays cleaner for longer (no soap film)</li>
+               <li class="flex items-center text-slate-800"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-600 mr-3 shrink-0"></i> Frames, sills, and doors included free</li>
+               <li class="flex items-center text-slate-800"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-600 mr-3 shrink-0"></i> Cleaned safely from the ground</li>
+             </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Domestic & Commercial Showcase -->
+  <section class="py-24 bg-slate-900 text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
+        <h2 class="text-sm font-bold tracking-widest text-cyan-400 uppercase mb-3">Our Expertise</h2>
+        <h3 class="text-4xl md:text-5xl font-extrabold tracking-tight">Specialist cleaning for every pane.</h3>
       </div>
 
+      <div class="space-y-16">
+        <!-- Domestic -->
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+          <div class="reveal opacity-0 -translate-x-12 transition-all-1000 ease-out lg:w-1/2 relative">
+            <img src="images/domestic.jpg" alt="Domestic House" class="rounded-[2rem] shadow-2xl object-cover h-[350px] md:h-[400px] w-full" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000'" />
+          </div>
+          <div class="reveal opacity-0 translate-x-12 transition-all-1000 ease-out lg:w-1/2">
+            <h4 class="text-3xl font-extrabold mb-4 text-white">Domestic Cleaning</h4>
+            <p class="text-slate-300 text-lg mb-8 leading-relaxed">Our core focus. We treat your home with absolute respect, washing every window, frame, and sill on the property.</p>
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+              <h5 class="font-bold text-cyan-400 mb-2">Our Reliable Schedules:</h5>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                  <span class="text-slate-300">4-Weekly Clean</span>
+                  <span class="text-xs font-bold bg-slate-700 px-2 py-1 rounded text-slate-300">Popular</span>
+                </div>
+                <div class="flex justify-between items-center pb-2">
+                  <span class="text-slate-300">8-Weekly Clean</span>
+                  <span class="text-xs font-bold bg-slate-700 px-2 py-1 rounded text-slate-300">Maintenance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commercial -->
+        <div class="flex flex-col lg:flex-row-reverse gap-12 lg:gap-20 items-center">
+          <div class="reveal opacity-0 translate-x-12 transition-all-1000 ease-out lg:w-1/2 relative">
+            <img src="images/commercial.jpg" alt="Commercial Building" class="rounded-[2rem] shadow-2xl object-cover h-[350px] md:h-[400px] w-full" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000'" />
+          </div>
+          <div class="reveal opacity-0 -translate-x-12 transition-all-1000 ease-out lg:w-1/2">
+            <h4 class="text-3xl font-extrabold mb-4 text-white">Commercial Contracts</h4>
+            <p class="text-slate-300 text-lg mb-8 leading-relaxed">First impressions matter. We provide reliable, fully insured window cleaning for shop fronts, offices, and industrial units.</p>
+            <ul class="space-y-4">
+              <li class="flex items-center text-slate-300 font-medium"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 mr-3"></i> Full risk assessments provided</li>
+              <li class="flex items-center text-slate-300 font-medium"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 mr-3"></i> Flexible invoicing options</li>
+              <li class="flex items-center text-slate-300 font-medium"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 mr-3"></i> Out-of-hours cleaning available</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Inject Reusable Footer -->
+  <!-- Safe Cleaning Process -->
+  <section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
+        <h2 class="text-sm font-bold tracking-widest text-cyan-600 uppercase mb-3">Our Methodology</h2>
+        <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">The Reach & Wash System.</h3>
+        <p class="mt-4 text-lg text-slate-600">The safest and most effective way to clean windows in the 21st century.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out bg-white p-8 rounded-3xl shadow-sm border border-slate-100" style="transition-delay: 0ms;">
+          <div class="w-12 h-12 bg-cyan-100 text-cyan-700 rounded-full flex items-center justify-center font-extrabold text-xl mb-6">1</div>
+          <h4 class="text-xl font-bold text-slate-900 mb-3">Purification</h4>
+          <p class="text-slate-600 text-sm">We process tap water through multi-stage reverse osmosis filters in our vans, reducing the TDS (Total Dissolved Solids) to exactly 000 parts per million.</p>
+        </div>
+
+        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out bg-white p-8 rounded-3xl shadow-sm border border-slate-100" style="transition-delay: 150ms;">
+          <div class="w-12 h-12 bg-cyan-100 text-cyan-700 rounded-full flex items-center justify-center font-extrabold text-xl mb-6">2</div>
+          <h4 class="text-xl font-bold text-slate-900 mb-3">Elevation</h4>
+          <p class="text-slate-600 text-sm">We pump the pure water up lightweight telescopic carbon-fibre poles, allowing us to safely reach windows up to 3 storeys high without using a single ladder.</p>
+        </div>
+
+        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out bg-white p-8 rounded-3xl shadow-sm border border-slate-100" style="transition-delay: 300ms;">
+          <div class="w-12 h-12 bg-cyan-100 text-cyan-700 rounded-full flex items-center justify-center font-extrabold text-xl mb-6">3</div>
+          <h4 class="text-xl font-bold text-slate-900 mb-3">Agitation</h4>
+          <p class="text-slate-600 text-sm">Using purpose-built soft-bristled brush heads, we gently scrub the glass, frames, and sills, breaking the bond between the dirt and your property.</p>
+        </div>
+
+        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out bg-white p-8 rounded-3xl shadow-sm border border-slate-100" style="transition-delay: 450ms;">
+          <div class="w-12 h-12 bg-cyan-100 text-cyan-700 rounded-full flex items-center justify-center font-extrabold text-xl mb-6">4</div>
+          <h4 class="text-xl font-bold text-slate-900 mb-3">Natural Dry</h4>
+          <p class="text-slate-600 text-sm">We give the window a final rinse with pure water and leave it to dry naturally. Because the water contains zero impurities, it dries perfectly clear.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs for Window Cleaning -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out text-center mb-16">
+        <h3 class="text-3xl font-extrabold text-slate-900 tracking-tight">Window Cleaning FAQs</h3>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out border border-slate-200 rounded-2xl overflow-hidden" style="transition-delay: 0ms;">
+          <button class="faq-btn w-full px-6 py-5 text-left bg-white hover:bg-slate-50 flex justify-between items-center transition-colors focus:outline-none">
+            <span class="font-bold text-slate-900">Are the frames and sills included?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-cyan-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content px-6 overflow-hidden transition-all duration-300 ease-in-out bg-slate-50 max-h-0 py-0 opacity-0">
+            <p class="text-slate-600 text-sm leading-relaxed pb-5">Yes! Unlike traditional window cleaners who only wipe the glass, our pure water system allows us to thoroughly scrub and rinse your frames, sills, and external doors every single time, at no extra cost.</p>
+          </div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out border border-slate-200 rounded-2xl overflow-hidden" style="transition-delay: 100ms;">
+          <button class="faq-btn w-full px-6 py-5 text-left bg-white hover:bg-slate-50 flex justify-between items-center transition-colors focus:outline-none">
+            <span class="font-bold text-slate-900">Do you clean in the rain?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-cyan-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content px-6 overflow-hidden transition-all duration-300 ease-in-out bg-slate-50 max-h-0 py-0 opacity-0">
+            <p class="text-slate-600 text-sm leading-relaxed pb-5">Yes. Rainwater is essentially pure and does not affect the finish. The only thing that ruins a clean is dirt. If you are ever unhappy with a clean due to heavy weather, we offer a 48-hour guarantee to return and re-clean for free.</p>
+          </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out border border-slate-200 rounded-2xl overflow-hidden" style="transition-delay: 200ms;">
+          <button class="faq-btn w-full px-6 py-5 text-left bg-white hover:bg-slate-50 flex justify-between items-center transition-colors focus:outline-none">
+            <span class="font-bold text-slate-900">Do I need to be at home?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-cyan-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content px-6 overflow-hidden transition-all duration-300 ease-in-out bg-slate-50 max-h-0 py-0 opacity-0">
+            <p class="text-slate-600 text-sm leading-relaxed pb-5">Not at all! We will send you an automated text message the evening before we arrive so you know to leave the side gate unlocked. We will clean your windows and leave a calling card to let you know we've been.</p>
+          </div>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="reveal opacity-0 translate-y-12 transition-all-1000 ease-out border border-slate-200 rounded-2xl overflow-hidden" style="transition-delay: 300ms;">
+          <button class="faq-btn w-full px-6 py-5 text-left bg-white hover:bg-slate-50 flex justify-between items-center transition-colors focus:outline-none">
+            <span class="font-bold text-slate-900">How do I pay you?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-cyan-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content px-6 overflow-hidden transition-all duration-300 ease-in-out bg-slate-50 max-h-0 py-0 opacity-0">
+            <p class="text-slate-600 text-sm leading-relaxed pb-5">We make it incredibly easy. You can pay via direct bank transfer, set up an automated Direct Debit (so you never have to remember), or pay in cash if you happen to be home when we visit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-cyan-600 text-center text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-cyan-500 rounded-full blur-3xl opacity-50"></div>
+    <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-blue-600 rounded-full blur-3xl opacity-50"></div>
+    <div class="max-w-3xl mx-auto px-4 relative z-10 reveal opacity-0 translate-y-12 transition-all-1000 ease-out">
+      <h2 class="text-4xl font-extrabold mb-6">Ready for clearer windows?</h2>
+      <p class="text-cyan-100 text-xl mb-8">Get your free, no-obligation quote today.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-6">
+        <a href="index.html#quote-form" class="magnetic-btn px-8 py-4 bg-white text-cyan-700 font-bold rounded-xl shadow-lg hover:bg-slate-50 transition-colors text-lg">Go to Quote Form</a>
+        <a href="https://wa.me/447000000000" class="magnetic-btn px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-lg flex items-center justify-center">
+          <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i> WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+
   <vista-footer></vista-footer>
-
-  <!-- Load Web Components -->
+  
   <script src="nav.js"></script>
   <script src="footer.js"></script>
-
+  
   <script>
-    lucide.createIcons();
+    // Initialize Icons
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+
+    // Magnetic Button Physics
+    document.addEventListener('mousemove', (e) => {
+      document.querySelectorAll('.magnetic-btn').forEach(btn => {
+        const rect = btn.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const x = e.clientX - centerX;
+        const y = e.clientY - centerY;
+        const distance = Math.sqrt(x * x + y * y);
+        const maxDistance = 150;
+
+        if (distance < maxDistance) {
+          const pullStrength = (maxDistance - distance) / maxDistance;
+          btn.style.transform = `translate(${x * 0.4 * pullStrength}px, ${y * 0.4 * pullStrength}px)`;
+        } else {
+          btn.style.transform = `translate(0px, 0px)`;
+        }
+      });
+    });
+
+    // Intersection Observer for Reveal Animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.remove('opacity-0', 'translate-y-12');
-          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-12', '-translate-y-12', 'translate-x-12', '-translate-x-12');
+          entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
