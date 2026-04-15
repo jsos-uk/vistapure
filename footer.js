@@ -10,7 +10,7 @@ class VistaFooter extends HTMLElement {
             <div class="lg:col-span-4">
               <div class="flex items-center gap-2 mb-6">
                 <img 
-                  src="/images/logo-rectangle.png" 
+                  src="images/logo-rectangle.png" 
                   alt="Vista Pure Logo" 
                   class="logo-crisp h-12 w-auto"
                   onerror="this.src='https://placehold.co/200x80?text=Vista+Pure'"
@@ -57,16 +57,20 @@ class VistaFooter extends HTMLElement {
             <div class="lg:col-span-3">
               <h4 class="text-slate-900 font-bold mb-6">Contact Us</h4>
               <ul class="space-y-4 text-slate-500 font-medium">
-                <li><a href="tel:+447000000000" class="flex items-center hover:text-cyan-600 transition-colors"><i data-lucide="phone" class="w-5 h-5 mr-3 text-slate-300"></i>07000 000 000</a></li>
-                <li><a href="https://wa.me/447000000000" class="flex items-center hover:text-cyan-600 transition-colors"><i data-lucide="message-circle" class="w-5 h-5 mr-3 text-slate-300"></i>WhatsApp Us</a></li>
+                <li><a href="tel:+447834668439" class="flex items-center hover:text-cyan-600 transition-colors"><i data-lucide="phone" class="w-5 h-5 mr-3 text-slate-300"></i>07834 668439</a></li>
+                <li><a href="https://wa.me/447834668439" class="flex items-center hover:text-cyan-600 transition-colors"><i data-lucide="message-circle" class="w-5 h-5 mr-3 text-slate-300"></i>WhatsApp Us</a></li>
                 <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 mt-0.5 text-slate-300"></i><span>Serving the local area<br/>and surrounding districts.</span></li>
               </ul>
             </div>
 
           </div>
           
-          <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-400 font-medium">
-            <p>&copy; 2024 Vista Pure Window Cleaning. All rights reserved.</p>
+          <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-400 font-medium text-center md:text-left">
+            <div class="flex flex-col md:flex-row md:items-center gap-2">
+              <p>&copy; ${new Date().getFullYear()} Vista Pure Window Cleaning. All rights reserved.</p>
+              <span class="hidden md:block text-slate-300">|</span>
+              <p>Designed by <a href="https://jsos.uk" target="_blank" rel="noopener noreferrer" class="text-cyan-600 hover:text-cyan-700 font-bold transition-colors">JS Office Solutions</a></p>
+            </div>
             <div class="flex space-x-6 mt-4 md:mt-0">
               <a href="#" class="hover:text-slate-900 transition-colors">Privacy Policy</a>
               <a href="#" class="hover:text-slate-900 transition-colors">Terms of Service</a>
@@ -76,7 +80,7 @@ class VistaFooter extends HTMLElement {
       </footer>
 
       <!-- Site-wide Floating WhatsApp Button -->
-      <a href="https://wa.me/447000000000" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-white text-slate-900 p-4 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-100 transition-all flex items-center group cursor-pointer transform hover:-translate-y-1">
+      <a href="https://wa.me/447834668439" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-white text-slate-900 p-4 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-100 transition-all flex items-center group cursor-pointer transform hover:-translate-y-1">
         <div class="bg-[#25D366] text-white p-2 rounded-xl mr-3 relative">
           <i data-lucide="message-circle" class="w-6 h-6"></i>
           <span class="absolute -top-1 -right-1 flex h-3 w-3">
