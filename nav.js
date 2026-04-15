@@ -7,12 +7,12 @@ class VistaNav extends HTMLElement {
             
             <!-- Logo -->
             <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer group">
-              <img src="/images/logo-rectangle.png" alt="Vista Pure Logo" class="logo-crisp h-10 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/200x80?text=Vista+Pure'" />
+              <img src="images/logo-rectangle.png" alt="Vista Pure Logo" class="logo-crisp h-10 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/200x80?text=Vista+Pure'" />
             </a>
 
             <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-1">
-              <div class="flex items-center space-x-2 mr-6 px-4 py-1.5 rounded-full bg-slate-100/80 border border-slate-200/50">
+            <div class="hidden md:flex items-center">
+              <div class="flex items-center space-x-2 mr-4 px-4 py-1.5 rounded-full bg-slate-100/80 border border-slate-200/50">
                 <a href="index.html" class="px-4 py-2 text-sm font-semibold rounded-full text-slate-600 hover:text-slate-900 hover:bg-white shadow-sm transition-all">Home</a>
                 
                 <!-- Desktop Services Dropdown -->
@@ -34,9 +34,16 @@ class VistaNav extends HTMLElement {
                 <a href="index.html#process" class="px-4 py-2 text-sm font-semibold rounded-full text-slate-600 hover:text-slate-900 hover:bg-white shadow-sm transition-all">Our Process</a>
                 <a href="index.html#reviews" class="px-4 py-2 text-sm font-semibold rounded-full text-slate-600 hover:text-slate-900 hover:bg-white shadow-sm transition-all">Reviews</a>
               </div>
-              <a href="index.html#quote-form" class="group relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white transition-all rounded-full bg-slate-900 hover:bg-cyan-700 shadow-md">
-                Get a Quote
-              </a>
+              
+              <!-- Desktop Action Buttons -->
+              <div class="flex items-center space-x-2">
+                <a href="tel:+447000000000" class="flex items-center px-5 py-2.5 text-sm font-bold text-slate-700 border-2 border-slate-200 rounded-full hover:bg-slate-50 hover:text-cyan-600 hover:border-cyan-200 transition-all">
+                  <i data-lucide="phone" class="w-4 h-4 mr-2"></i> Call Us
+                </a>
+                <a href="index.html#quote-form" class="group relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white transition-all rounded-full bg-slate-900 hover:bg-cyan-700 shadow-md">
+                  Get a Quote
+                </a>
+              </div>
             </div>
 
             <!-- Mobile Hamburger Button -->
@@ -70,9 +77,16 @@ class VistaNav extends HTMLElement {
           <a href="index.html#process" class="mobile-link px-4 py-3 text-base font-bold text-slate-800 hover:bg-blue-50 rounded-xl transition-colors">Our Process</a>
           <a href="index.html#reviews" class="mobile-link px-4 py-3 text-base font-bold text-slate-800 hover:bg-blue-50 rounded-xl transition-colors">Reviews & FAQs</a>
           <a href="index.html#areas" class="mobile-link px-4 py-3 text-base font-bold text-slate-800 hover:bg-blue-50 rounded-xl transition-colors">Areas Covered</a>
-          <a href="tel:+447000000000" class="mt-4 flex items-center justify-center w-full px-5 py-4 text-base font-bold text-white bg-slate-900 rounded-xl shadow-md hover:bg-cyan-700 transition-colors">
-            <i data-lucide="phone" class="w-5 h-5 mr-2"></i> Call Now
-          </a>
+          
+          <!-- Mobile Action Buttons -->
+          <div class="pt-4 mt-2 border-t border-slate-100 flex flex-col gap-3">
+            <a href="tel:+447000000000" class="flex items-center justify-center w-full px-5 py-3 text-slate-700 font-bold border-2 border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
+              <i data-lucide="phone" class="w-5 h-5 mr-2"></i> Call Us
+            </a>
+            <a href="index.html#quote-form" class="flex items-center justify-center w-full px-5 py-4 text-base font-bold text-white bg-slate-900 rounded-xl shadow-md hover:bg-cyan-700 transition-colors">
+              Get a Quote
+            </a>
+          </div>
         </div>
       </nav>
     `;
