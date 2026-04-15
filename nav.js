@@ -37,7 +37,7 @@ class VistaNav extends HTMLElement {
               
               <!-- Desktop Action Buttons -->
               <div class="flex items-center space-x-2">
-                <a href="tel:+447000000000" class="flex items-center px-5 py-2.5 text-sm font-bold text-slate-700 border-2 border-slate-200 rounded-full hover:bg-slate-50 hover:text-cyan-600 hover:border-cyan-200 transition-all">
+                <a href="tel:+447834668439" class="flex items-center px-5 py-2.5 text-sm font-bold text-slate-700 border-2 border-slate-200 rounded-full hover:bg-slate-50 hover:text-cyan-600 hover:border-cyan-200 transition-all">
                   <i data-lucide="phone" class="w-4 h-4 mr-2"></i> Call Us
                 </a>
                 <a href="index.html#quote-form" class="group relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white transition-all rounded-full bg-slate-900 hover:bg-cyan-700 shadow-md">
@@ -80,7 +80,7 @@ class VistaNav extends HTMLElement {
           
           <!-- Mobile Action Buttons -->
           <div class="pt-4 mt-2 border-t border-slate-100 flex flex-col gap-3">
-            <a href="tel:+447000000000" class="flex items-center justify-center w-full px-5 py-3 text-slate-700 font-bold border-2 border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
+            <a href="tel:+447834668439" class="flex items-center justify-center w-full px-5 py-3 text-slate-700 font-bold border-2 border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
               <i data-lucide="phone" class="w-5 h-5 mr-2"></i> Call Us
             </a>
             <a href="index.html#quote-form" class="flex items-center justify-center w-full px-5 py-4 text-base font-bold text-white bg-slate-900 rounded-xl shadow-md hover:bg-cyan-700 transition-colors">
